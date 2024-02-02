@@ -19,5 +19,5 @@ fastify.listen(3000, (err, address) => {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening on ${address}`);
+  console.log(`Сервер прослушивает ${address}`);
 });
