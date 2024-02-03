@@ -20,7 +20,7 @@ class GuessManager {
             const item = logo[Math.floor(Math.random() * logo.length)];
             return { code: 1, item };
         }else{
-            return error(404, `type ${type} not found`)
+            return error(404, `Тип ${type} не найден!`)
         }
     }
 

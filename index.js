@@ -1,9 +1,15 @@
 const fastify = require('fastify')();
+const { connect } = require('mongoose');
 const config = require('./config.json');
 const GuessManager = require('./main/guess.js');
+const QuizManager = require('./main/quiz.js');
+
+connect(
+	config.mongo
+);
 
 fastify.get('/', async (request, reply) => {
-  return { message: config.version };
+  return { developer: config.dev, version: config.version, docs: config.docs };
 });
 
 fastify.get('/v1/guess/:type', async (request, reply) => {
@@ -11,10 +17,10 @@ fastify.get('/v1/guess/:type', async (request, reply) => {
 });
 
 fastify.get('/v1/quiz', async (request, reply) => {
-  return "Coming soon"
+  return QuizManager.quiz(request.query.category, request.query.multiple, request.query.difficulty)
 });
 
-fastify.listen(3000, (err, address) => {
+fastify.listen({ port: 3000 }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);

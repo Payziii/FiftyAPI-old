@@ -1,3 +1,6 @@
 {
-    "version": "0.0.1"
+    "version": "0.0.2",
+    "docs": "Совсем скоро!",
+    "dev": "https://github.com/Payziii | https://github.com/lordofthesun",
+    "mongo": "mongodb://uok2iuas6upsil4ldmpu:O0IW6TP16bUPg1TgQCtt@n1-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017,n2-c2-mongodb-clevercloud-customers.services.clever-cloud.com:27017/b1ernjonutgauy3?replicaSet=rs0"
 }
