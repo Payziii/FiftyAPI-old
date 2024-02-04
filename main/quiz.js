@@ -2,13 +2,13 @@ const Quiz = require('../src/database/quiz.js');
 const items = require('../src/quiz/items.js');
 const { error } = require('./error.js');
 const config = require('../config.json');
-const { getRandomElements } = require('./functions.js');
+const getRandomElements = require('./functions.js');
 
 class QuizManager {
 
     static async quiz(category, multiple, difficulty) {
         category = category ? category : Math.floor(Math.random() * items.cat.length);
-        multiple = multiple ? multiple==="true" : items.multiple[Math.floor(Math.random() * items.multiple.length)];
+        multiple = multiple ? multiple==="true" : true/*items.multiple[Math.floor(Math.random() * items.multiple.length)]*/;
         difficulty = difficulty ? difficulty : Math.floor(Math.random() * items.diff.length);
 
         if(!items.cat[category] || !items.diff[difficulty]) return error(404, `Категория или сложность не найдены!`)
