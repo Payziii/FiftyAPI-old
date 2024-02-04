@@ -21,9 +21,11 @@ class QuizManager {
 
     static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers)  {
         if(!key || key != config.key) return error(403, `Нет доступа`)
-        await Quiz.create({ category, multiple, difficulty, question, correct_answer, incorrect_answers }).then(async (data) => {
-            return data;
-        });
+        await Quiz.create({ category, multiple, difficulty, question, correct_answer, incorrect_answers }).then(() => {
+            return { "created": "true" };
+        }).catch(() => {
+            return { "created": "false" };
+        })
     }
 }
 
