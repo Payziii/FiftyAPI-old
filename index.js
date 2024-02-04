@@ -4,9 +4,7 @@ const config = require('./config.json');
 const GuessManager = require('./main/guess.js');
 const QuizManager = require('./main/quiz.js');
 
-connect(
-	config.mongo
-);
+connect(config.mongo);
 
 fastify.get('/', async (request, reply) => {
   return { developer: config.dev, version: config.version, docs: config.docs };

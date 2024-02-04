@@ -2,6 +2,7 @@ const Quiz = require('../src/database/quiz.js');
 const items = require('../src/quiz/items.js');
 const { error } = require('./error.js');
 const config = require('../config.json');
+const { getRandomElements } = require('./functions.js');
 
 class QuizManager {
 
@@ -15,7 +16,7 @@ class QuizManager {
 
         let quizes = await Quiz.find({ category: category, multiple: multiple, difficulty: difficulty })
         if(quizes.length < 1) return error(404, `Вопросов по данному запросу не найдено!`)
-        return quizes
+        return getRandomElements(quizes, 1)
     }
 
     static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers)  {
