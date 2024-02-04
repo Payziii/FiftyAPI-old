@@ -20,6 +20,10 @@ fastify.get('/v1/quiz', async (request, reply) => {
   return QuizManager.quiz(request.query.category, request.query.multiple, request.query.difficulty)
 });
 
+fastify.post('/v1/newQuiz', async (request, reply) => {
+  return QuizManager.create(request.body.key, request.body.category, request.body.multiple, request.body.difficulty, request.body.question, request.body.correct_answer, request.body.incorrect_answers)
+});
+
 fastify.listen({ port: 3000 }, (err, address) => {
   if (err) {
     console.error(err);
