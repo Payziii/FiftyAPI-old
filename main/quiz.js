@@ -19,12 +19,12 @@ class QuizManager {
         return getRandomElements(quizes, 1)
     }
 
-    static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers) {
+    static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers, reply) {
         if (!key || key != config.key) return error(403, `Нет доступа`)
         await Quiz.create({ category, multiple, difficulty, question, correct_answer, incorrect_answers }).then(() => {
-            return { "created": "true" };
+            reply.send({ "created": true });
         }).catch(() => {
-            return { "created": "false" };
+            reply.send({ "created": false });
         })
     }
 

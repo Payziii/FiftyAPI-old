@@ -29,7 +29,7 @@ module.exports = async function a() {
     });
 
     fastify.post('/v1/newQuiz', async (request, reply) => {
-        return QuizManager.create(request.body.key, request.body.category, request.body.multiple, request.body.difficulty, request.body.question, request.body.correct_answer, request.body.incorrect_answers)
+        return QuizManager.create(request.body.key, request.body.category, request.body.multiple, request.body.difficulty, request.body.question, request.body.correct_answer, request.body.incorrect_answers, reply)
     });
 
     fastify.listen({ port: 3000 }, (err, address) => {
