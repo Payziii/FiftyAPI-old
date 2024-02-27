@@ -41,7 +41,7 @@ class QuizManager {
             }
         });
 
-        return categoryCounts
+        return { all: data.length, byCatergories: categoryCounts }
     }
 }
 

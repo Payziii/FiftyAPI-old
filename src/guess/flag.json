@@ -1,0 +1,74 @@
+[
+    {
+        "image": "",
+        "proportion": "",
+        "answers": [],
+        "id": 1
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/jp.png",
+        "proportion": "2:3",
+        "answers": ["Япония"],
+        "id": 1
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/jm.png",
+        "proportion": "1:2",
+        "answers": ["Ямайка"],
+        "id": 2
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/ss.png",
+        "proportion": "1:2",
+        "answers": ["Южный Судан"],
+        "id": 3
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/za.png",
+        "proportion": "2:3",
+        "answers": ["Южно-Африканская Республика", "ЮАР"],
+        "id": 4
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/ee.png",
+        "proportion": "7:11",
+        "answers": ["Эстония"],
+        "id": 5
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/et.png",
+        "proportion": "1:2",
+        "answers": ["Эфиопия"],
+        "id": 6
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/sz.png",
+        "proportion": "2:3",
+        "answers": ["Эсватини"],
+        "id": 7
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/er.png",
+        "proportion": "1:2",
+        "answers": ["Эритрея"],
+        "id": 8
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/gq.png",
+        "proportion": "2:3",
+        "answers": ["Экваториальная Гвинея", "ЭГ", "Гвинея"],
+        "id": 9
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/ec.png",
+        "proportion": "2:3",
+        "answers": ["Эквадор"],
+        "id": 10
+    },
+    {
+        "image": "https://raw.githubusercontent.com/hampusborgos/country-flags/main/png1000px/lk.png",
+        "proportion": "1:2",
+        "answers": ["Шри-Ланка", "Шри Ланка"],
+        "id": 11
+    }
+]

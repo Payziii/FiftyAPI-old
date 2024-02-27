@@ -13,7 +13,7 @@ module.exports = async function a() {
     })
 
     fastify.get('/', async (request, reply) => {
-        return { developer: config.dev, version: config.version, docs: config.docs };
+        return { developers: config.dev, version: config.version, docs: config.docs, discord: config.discord };
     });
 
     fastify.get('/v1/guess/:type', async (request, reply) => {
