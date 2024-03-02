@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const quiz = Schema({
+const quizitem = Schema({
     author: { type: String },
     history: { type: Array },
     publish: { type: Boolean, default: true },
@@ -12,4 +12,4 @@ const quiz = Schema({
     incorrect_answers: { type: Array }
 });
 
-module.exports = model('Quiz', quiz);
+module.exports = model('QuizItem', quizitem);
