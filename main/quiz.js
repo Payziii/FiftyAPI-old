@@ -1,4 +1,5 @@
 const Quiz = require('../src/database/quiz.js');
+const Item = require('../src/database/quizItem.js');
 const items = require('../src/quiz/items.js');
 const { error } = require('./error.js');
 const config = require('../config.json');
@@ -22,6 +23,15 @@ class QuizManager {
     static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers, reply) {
         if (!key || key != config.key) return error(403, `Нет доступа`)
         await Quiz.create({ category, multiple, difficulty, question, correct_answer, incorrect_answers }).then(() => {
+            reply.send({ "created": true });
+        }).catch(() => {
+            reply.send({ "created": false });
+        })
+    }
+
+    static async sendToMod(req, reply) {
+        const body = req.body;
+        await Item.create({ author: req.ip, category: body.category, multiple: body.multiple, difficulty: body.difficulty, question: body.question, correct_answer: body.correct_answer, incorrect_answers: body.incorrect_answers }).then(() => {
             reply.send({ "created": true });
         }).catch(() => {
             reply.send({ "created": false });
