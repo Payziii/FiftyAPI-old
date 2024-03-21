@@ -9,7 +9,7 @@ class QuizManager {
 
     static async quiz(category, multiple, difficulty) {
         category = category ? category : Math.floor(Math.random() * items.cat.length);
-        multiple = multiple ? multiple === "true" : true/*items.multiple[Math.floor(Math.random() * items.multiple.length)]*/;
+        multiple = multiple ? multiple === "true" : items.multiple[Math.floor(Math.random() * items.multiple.length)];
         difficulty = difficulty ? difficulty : Math.floor(Math.random() * items.diff.length);
 
         if (!items.cat[category] || !items.diff[difficulty]) return error(404, `Категория или сложность не найдены!`)
@@ -20,21 +20,33 @@ class QuizManager {
         return getRandomElements(quizes, 1)
     }
 
-    static async create(key, category, multiple, difficulty, question, correct_answer, incorrect_answers, reply) {
+    static async create(reply, key, category, multiple, difficulty, question, correct_answer, incorrect_answers) {
         if (!key || key != config.key) return error(403, `Нет доступа`)
         await Quiz.create({ category, multiple, difficulty, question, correct_answer, incorrect_answers }).then(() => {
-            reply.send({ "created": true });
+            reply
+                .code(201)
+                .header('Content-Type', 'application/json; charset=utf-8')
+                .send({ "created": true });
         }).catch(() => {
-            reply.send({ "created": false });
+            reply
+                .code(520)
+                .header('Content-Type', 'application/json; charset=utf-8')
+                .send({ "created": false });
         })
     }
 
-    static async sendToMod(req, reply) {
+    static async sendToMod(reply, req) {
         const body = req.body;
         await Item.create({ author: req.ip, category: body.category, multiple: body.multiple, difficulty: body.difficulty, question: body.question, correct_answer: body.correct_answer, incorrect_answers: body.incorrect_answers }).then(() => {
-            reply.send({ "created": true });
+            reply
+                .code(201)
+                .header('Content-Type', 'application/json; charset=utf-8')
+                .send({ "created": true });
         }).catch(() => {
-            reply.send({ "created": false });
+            reply
+                .code(520)
+                .header('Content-Type', 'application/json; charset=utf-8')
+                .send({ "created": false });
         })
     }
 
